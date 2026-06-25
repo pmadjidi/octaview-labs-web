@@ -84,6 +84,12 @@ section { padding: 92px 0; border-bottom: 1px solid var(--line); }
 .princ h4 { margin-top: 11px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
 .princ p { margin-top: 9px; color: var(--ink-2); font-size: 14.5px; }
 
+/* why / blind spots */
+.blind { padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); }
+.blind h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.blind h4::before { content: ""; display: block; width: 26px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); margin-bottom: 14px; }
+.blind p { margin-top: 10px; color: var(--ink-2); font-size: 14.5px; }
+
 /* founder */
 .founder { display: flex; gap: 26px; align-items: flex-start; margin-top: 38px; flex-wrap: wrap; }
 .avatar { width: 64px; height: 64px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; font-weight: 800; color: #fff; font-size: 22px; flex: 0 0 auto; letter-spacing: -0.02em; }
