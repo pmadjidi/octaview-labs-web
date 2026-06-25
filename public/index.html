@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OctaView Labs — Provable infrastructure for AI-driven finance</title>
+<meta name="description" content="OctaView Labs — an engineering lab building provable, DORA-aligned AI infrastructure for institutional finance. Tamper-evident audit substrates and settlement systems that let institutions adopt AI without losing the audit trail." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0e16; --bg-2:#0f1521; --panel:#121a28; --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14); --ink:#eaf0f7; --ink-2:#a6b1c6; --ink-3:#6f7d93;
+    --accent:#b56bf2; --accent-2:#5aa8ff; --magenta:#e056c7; --max:1080px;
+    --serif:'Newsreader',Georgia,serif; --sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .accent{color:var(--accent)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .mark{flex:0 0 auto}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,14,22,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:17px;letter-spacing:-.01em}
+  .brand .mark{width:28px;height:28px}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{font-size:14px;font-weight:500;padding:8px 16px;border:1px solid var(--line-2);border-radius:8px;transition:.2s}
+  .nav-cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  header.hero{padding:104px 0 96px;position:relative;border-bottom:1px solid var(--line)}
+  header.hero::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);width:780px;height:780px;max-width:120vw;background:radial-gradient(circle,rgba(181,107,242,.13),transparent 62%);pointer-events:none}
+  .hero .mark.big{width:84px;height:84px;margin-bottom:30px;position:relative;filter:drop-shadow(0 8px 30px rgba(181,107,242,.35))}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,6.4vw,68px);line-height:1.05;letter-spacing:-.02em;max-width:15ch;position:relative}
+  .hero p.lede{margin-top:26px;font-size:clamp(17px,2.1vw,21px);color:var(--ink-2);max-width:60ch;position:relative}
+  .hero .cta-row{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;position:relative}
+  .btn{font-size:15px;font-weight:500;padding:13px 22px;border-radius:9px;transition:.2s;border:1px solid transparent}
+  .btn-primary{background:var(--accent);color:#1c0a33}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:rgba(255,255,255,.03)}
+  .hero .tag{margin-bottom:22px;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);border:1px solid var(--line);background:var(--panel);padding:6px 13px;border-radius:999px;position:relative}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(181,107,242,.18)}
+
+  section{padding:96px 0;border-bottom:1px solid var(--line)}
+  .sec-head{max-width:62ch}
+  .sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,40px);line-height:1.12;letter-spacing:-.02em;margin-top:14px}
+  .sec-head p{margin-top:16px;color:var(--ink-2);font-size:17px}
+
+  .thesis{text-align:center;padding:104px 0}
+  .thesis blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4.4vw,44px);line-height:1.22;letter-spacing:-.015em;max-width:18ch;margin:0 auto}
+  .thesis .q-sub{margin-top:28px;color:var(--ink-2);font-size:17px;max-width:54ch;margin-left:auto;margin-right:auto}
+
+  .prod{display:grid;grid-template-columns:1fr;gap:18px;margin-top:46px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:30px 30px 28px;transition:.25s}
+  .card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+  .card .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .card h3{font-size:22px;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+  .card .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:0 0 auto;border:1px solid var(--line-2);background:var(--bg)}
+  .card .ico .mark{width:22px;height:22px}
+  .card .ico svg.glyph{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.7}
+  .pill{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .pill.live{color:#1c0a33;background:var(--accent)}
+  .pill.dev{color:var(--accent);background:rgba(181,107,242,.13);border:1px solid rgba(181,107,242,.34)}
+  .pill.soon{color:var(--ink-2);background:rgba(255,255,255,.05);border:1px solid var(--line)}
+  .card p{margin-top:16px;color:var(--ink-2);font-size:15.5px;max-width:62ch}
+  .card .meta{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-size:12.5px;color:var(--ink-3);border:1px solid var(--line);border-radius:7px;padding:5px 10px}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr}}
+  .princ{padding:26px;border:1px solid var(--line);border-radius:14px;background:var(--bg-2)}
+  .princ .n{font-family:var(--serif);color:var(--accent);font-size:15px}
+  .princ h4{margin-top:12px;font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .princ p{margin-top:9px;color:var(--ink-2);font-size:14.5px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+  @media(max-width:820px){.two{grid-template-columns:1fr;gap:32px}}
+  .blind{border-left:2px solid var(--line-2);padding:4px 0 4px 22px;margin-top:26px}
+  .blind:first-of-type{margin-top:0}
+  .blind h4{font-size:16px;font-weight:600}
+  .blind p{margin-top:7px;color:var(--ink-2);font-size:15px}
+
+  .founder{display:flex;gap:26px;align-items:flex-start;margin-top:40px;flex-wrap:wrap}
+  .avatar{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--magenta));display:grid;place-items:center;font-weight:700;color:#1c0a33;font-size:22px;flex:0 0 auto;letter-spacing:-.02em}
+  .founder .b{max-width:62ch}
+  .founder .b .role{color:var(--ink-3);font-size:14px;margin-top:3px}
+  .founder .b p{margin-top:14px;color:var(--ink-2);font-size:16px}
+
+  .band{background:linear-gradient(180deg,var(--bg-2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:56px 40px;text-align:center;margin-top:8px}
+  .band .mark{width:48px;height:48px;margin:0 auto 18px;display:block;filter:drop-shadow(0 6px 22px rgba(181,107,242,.4))}
+  .band h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.02em}
+  .band p{margin:14px auto 28px;color:var(--ink-2);max-width:48ch}
+
+  footer{padding:54px 0 60px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  .foot .brand .mark{width:24px;height:24px}
+  .foot .legal{color:var(--ink-3);font-size:13.5px;line-height:1.8;max-width:42ch;margin-top:14px}
+  .foot .links{display:flex;gap:30px;font-size:14px;color:var(--ink-2)}
+  .foot .links a:hover{color:var(--ink)}
+  .copy{margin-top:34px;border-top:1px solid var(--line);padding-top:22px;color:var(--ink-3);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ovlOct" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a3170"/><stop offset="1" stop-color="#0b0f2e"/>
+    </linearGradient>
+    <radialGradient id="ovlSphere" cx="42%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#ff7fe6"/><stop offset="44%" stop-color="#a64bf0"/><stop offset="100%" stop-color="#2c1560"/>
+    </radialGradient>
+    <radialGradient id="ovlGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#c45ff0" stop-opacity="0.5"/><stop offset="100%" stop-color="#c45ff0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <symbol id="ovl-mark" viewBox="0 0 64 64">
+    <defs>
+      <linearGradient id="ovlOctG" x1="0.2" y1="0" x2="0.8" y2="1">
+        <stop offset="0" stop-color="#343d86"/><stop offset="55%" stop-color="#171c48"/><stop offset="1" stop-color="#0a0d2c"/>
+      </linearGradient>
+      <radialGradient id="ovlSphG" cx="38%" cy="32%" r="72%">
+        <stop offset="0" stop-color="#ff86ea"/><stop offset="30%" stop-color="#c84ff0"/><stop offset="63%" stop-color="#7a31d6"/><stop offset="1" stop-color="#2c1566"/>
+      </radialGradient>
+      <radialGradient id="ovlGloss" cx="34%" cy="26%" r="40%">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="ovlCtr" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#ffffff"/><stop offset="32%" stop-color="#ff7ef0"/><stop offset="1" stop-color="#ff3dc8" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <path d="M22 5 H42 L59 22 V42 L42 59 H22 L5 42 V22 Z" fill="url(#ovlOctG)" stroke="#474e96" stroke-width="0.6" stroke-linejoin="round"/>
+    <g stroke="#6c5fc4" stroke-width="0.8" opacity="0.42" fill="none" stroke-linecap="round">
+      <path d="M7 19 L27 49"/><path d="M57 19 L41 51"/><path d="M9 45 L29 11"/><path d="M55 45 L36 12"/>
+    </g>
+    <circle cx="32" cy="32" r="15.4" fill="#0b0e2a"/>
+    <circle cx="32" cy="32" r="15.4" fill="none" stroke="#5b50a6" stroke-width="0.6" opacity="0.7"/>
+    <circle cx="32" cy="32" r="13.6" fill="url(#ovlSphG)"/>
+    <g stroke="#ff9cee" stroke-width="0.7" opacity="0.8" fill="none" stroke-linecap="round">
+      <path d="M32 23 L40 27 L41 34.5 L36 41 L28 41 L23 34.5 L24 27 Z"/>
+      <line x1="32" y1="32" x2="32" y2="23"/><line x1="32" y1="32" x2="40" y2="27"/>
+      <line x1="32" y1="32" x2="41" y2="34.5"/><line x1="32" y1="32" x2="36" y2="41"/>
+      <line x1="32" y1="32" x2="28" y2="41"/><line x1="32" y1="32" x2="23" y2="34.5"/>
+      <line x1="32" y1="32" x2="24" y2="27"/>
+      <line x1="32" y1="23" x2="36" y2="41" opacity="0.5"/><line x1="32" y1="23" x2="28" y2="41" opacity="0.5"/>
+    </g>
+    <g fill="#ffd0f6">
+      <circle cx="32" cy="23" r="1.5"/><circle cx="40" cy="27" r="1.5"/><circle cx="41" cy="34.5" r="1.5"/>
+      <circle cx="36" cy="41" r="1.5"/><circle cx="28" cy="41" r="1.5"/><circle cx="23" cy="34.5" r="1.5"/><circle cx="24" cy="27" r="1.5"/>
+    </g>
+    <circle cx="32" cy="32" r="5" fill="url(#ovlCtr)"/>
+    <circle cx="32" cy="32" r="1.7" fill="#ffffff"/>
+    <ellipse cx="27" cy="25.5" rx="6.6" ry="4" fill="url(#ovlGloss)"/>
+  </symbol>
+  <symbol id="topos-mark" viewBox="0 0 64 64">
+    <polygon points="32,6 10,19 32,32" fill="#c4ccd4"/><polygon points="32,6 54,19 32,32" fill="#8693a1"/>
+    <polygon points="32,6 21,12.5 32,19" fill="#dfe5eb" opacity="0.85"/><polygon points="32,6 43,12.5 32,19" fill="#a9b3bd" opacity="0.85"/>
+    <polygon points="54,19 54,45 32,32" fill="#1e3a5f"/><polygon points="54,45 32,58 32,32" fill="#0f2340"/>
+    <polygon points="54,19 43,25.5 43,38.5 54,32" fill="#284d7a" opacity="0.7"/><polygon points="10,19 10,45 32,32" fill="#284d7a"/>
+    <polygon points="10,45 32,58 32,32" fill="#3e6aa0"/><polygon points="10,19 21,25.5 21,38.5 10,32" fill="#3e6aa0" opacity="0.55"/>
+    <g fill="none" stroke="#0f2340" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+      <polygon points="32,6 54,19 54,45 32,58 10,45 10,19"/><line x1="32" y1="6" x2="32" y2="32"/>
+      <line x1="10" y1="19" x2="32" y2="32"/><line x1="54" y1="19" x2="32" y2="32"/>
+    </g>
+  </symbol>
+</svg>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#ovl-mark"/></svg> OctaView Labs</a>
+    <div class="nav-links">
+      <a href="#thesis">Thesis</a>
+      <a href="#products">Products</a>
+      <a href="#principles">Principles</a>
+      <a href="#about">About</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <svg class="mark big" aria-label="OctaView Labs logo"><use href="#ovl-mark"/></svg>
+    <span class="tag"><span class="dot" aria-hidden="true"></span> Regulatory-grade reporting live in production today</span>
+    <h1>Provable infrastructure for AI-driven finance.</h1>
+    <p class="lede">OctaView Labs is an engineering lab building the trust layer that lets regulated institutions adopt AI — and modern settlement — without ever forfeiting the audit trail. Tamper-evident. DORA-aligned. Institutional-grade by construction.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#products">Explore what we build</a>
+      <a class="btn btn-ghost" href="#thesis">Why it matters →</a>
+    </div>
+  </div>
+</header>
+
+<section class="thesis" id="thesis">
+  <div class="wrap reveal">
+    <span class="eyebrow">The question every regulator asks</span>
+    <blockquote>"Show me exactly <span class="accent">why.</span>"</blockquote>
+    <p class="q-sub">Every AI system in regulated finance eventually meets a regulator, an auditor, or a court — and the question is always the same. OctaView Labs builds the infrastructure that can answer it with proof, not assurances.</p>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we build</span>
+      <h2>One substrate. A finance stack built to be trusted.</h2>
+      <p>We start where it's hardest — proving what a machine did inside a regulated system — and build outward from that foundation into the products finance has been waiting for.</p>
+    </div>
+
+    <div class="prod">
+      <article class="card reveal">
+        <div class="top">
+          <h3><span class="ico" aria-hidden="true"><svg class="mark"><use href="#topos-mark"/></svg></span> topos2</h3>
+          <span class="pill dev">In development</span>
+        </div>
+        <p><strong>The black box for AI systems.</strong> A tamper-evident audit substrate that captures, sequences, and cryptographically seals every machine decision inside a regulated codebase — so an auditor can recompute the record years later, in any language, and trust nothing but the math. The raw telemetry isn't a byproduct; it's the product.</p>
+        <div class="meta">
+          <span class="chip">Tamper-evident ledger</span>
+          <span class="chip">Per-decision attribution</span>
+          <span class="chip">Air-gap deployable</span>
+          <span class="chip">EU AI Act Art. 12 ready</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="top">
+          <h3><span class="ico" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24"><path d="M3 12h4l3 7 4-14 3 7h4"/></svg></span> T+0 settlement engine</h3>
+          <span class="pill soon">On the roadmap</span>
+        </div>
+        <p>Instant, same-day settlement infrastructure built on the same provable foundation — collapsing the settlement window without collapsing the audit trail. Speed and verifiability are usually a trade-off. We're building them as one system.</p>
+        <div class="meta">
+          <span class="chip">Deterministic finality</span>
+          <span class="chip">Regulator-defensible sequencing</span>
+          <span class="chip">Built on topos2</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="top">
+          <h3><span class="ico" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span> Regulatory reporting</h3>
+          <span class="pill live">In production</span>
+        </div>
+        <p>Our regulatory-reporting systems run in production today — submitting daily EMIR reports to a European trade repository. It's the empirical proof behind everything above: institutional-grade reliability isn't a slogan here, it's a track record.</p>
+        <div class="meta">
+          <span class="chip">EMIR Refit</span>
+          <span class="chip">Live at a European trade repository</span>
+          <span class="chip">Daily submissions</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How we build</span>
+      <h2>Institutional-grade is a method, not a marketing line.</h2>
+    </div>
+    <div class="grid3">
+      <div class="princ reveal"><div class="n">01</div><h4>Verify against reality</h4><p>The disk, the compiler, the actual byte — that is the only unpersuadable truth. Nothing ships on a confident sentence; everything ships on a verified fact.</p></div>
+      <div class="princ reveal"><div class="n">02</div><h4>Tamper-evident by construction</h4><p>A record you have to be trusted to believe isn't an audit trail. Ours can be independently recomputed and cryptographically checked — without trusting us.</p></div>
+      <div class="princ reveal"><div class="n">03</div><h4>The human is the moat</h4><p>Regulated finance needs a human accountable for every machine decision. We capture that human-in-the-loop signal as audit-grade data — making judgment reproducible, not removable.</p></div>
+      <div class="princ reveal"><div class="n">04</div><h4>Pure, portable, air-gapped</h4><p>Single static binaries, no external runtime dependencies. They cross-compile trivially and run inside a customer's air-gapped perimeter where the data never leaves.</p></div>
+      <div class="princ reveal"><div class="n">05</div><h4>Permission, not just capability</h4><p>The barrier to AI in regulated finance isn't whether it can be built — it's whether a compliance officer can defensibly allow it. We build the layer that lets them say yes.</p></div>
+      <div class="princ reveal"><div class="n">06</div><h4>Honest over impressive</h4><p>We document our own mistakes, gate one-way decisions behind a human, and never let a beautiful narrative outrun what's actually true on disk.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gap">
+  <div class="wrap two">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why it doesn't exist yet</span>
+      <h2>The market looked everywhere except at the raw signal.</h2>
+      <p>The obvious question is: if this is so needed, why hasn't someone built it? Three structural blind spots explain the gap — and OctaView Labs is built at the intersection of all three.</p>
+    </div>
+    <div class="reveal">
+      <div class="blind"><h4>The cloud-native blind spot</h4><p>Mainstream AI tooling treats orchestration as an abstraction to hide. We treat the raw telemetry as the product — because that's exactly the layer a regulator demands to see.</p></div>
+      <div class="blind"><h4>The institutional chasm</h4><p>The people with the discipline to demand regulator-defensible systems are locked inside enterprises that can't rewrite their architecture in a weekend. We carry the discipline and the freedom to ship it.</p></div>
+      <div class="blind"><h4>The human-in-the-loop taboo</h4><p>The industry sells "full autonomy" and hides the human operator. We invert it: the human's corrections are the most valuable, most auditable signal in the system.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Who we are</span>
+      <h2>Founder-built, by an operator who lived the problem.</h2>
+    </div>
+    <div class="founder reveal">
+      <div class="avatar" aria-hidden="true">PM</div>
+      <div class="b">
+        <strong style="font-size:19px">Payam Madjidi</strong>
+        <div class="role">Founder &amp; CTO, OctaView Labs</div>
+        <p>A finance-systems and bank-regulator veteran who has spent decades inside the trading, settlement, and compliance machinery of European finance. OctaView Labs is the infrastructure he spent that career wishing existed: a substrate that lets institutions move at the speed of modern software while still being able to prove, to anyone, exactly what happened and why.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none">
+  <div class="wrap">
+    <div class="band reveal">
+      <svg class="mark" aria-hidden="true"><use href="#ovl-mark"/></svg>
+      <h2>Building the trust layer for the next era of finance.</h2>
+      <p>For partnership, pilot, or investment conversations, we'd be glad to talk.</p>
+      <a class="btn btn-primary" href="mailto:info@octaviewlabs.com">info@octaviewlabs.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#ovl-mark"/></svg> OctaView Labs</a>
+        <p class="legal">Provable infrastructure for AI-driven finance. Tamper-evident audit substrates and settlement systems for regulated institutions.</p>
+      </div>
+      <div class="links">
+        <a href="#products">Products</a>
+        <a href="#principles">Principles</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 OctaView Labs · operated by TOP E CONSULT AB (Org. nr. 556646-2379), Sweden.</span>
+      <span>Stockholm · Europe</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
