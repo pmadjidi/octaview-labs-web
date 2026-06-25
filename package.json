@@ -1,0 +1,17 @@
+{
+  "name": "octaview-labs-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OctaView Labs — marketing site (Vite + TypeScript, deployed to Firebase Hosting via GitHub Actions).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^5.4.8"
+  }
+}
