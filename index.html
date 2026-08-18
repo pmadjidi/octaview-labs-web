@@ -3,247 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="color-scheme" content="light" />
-  <title>OctaView Labs — Provable infrastructure for AI systems</title>
-  <meta name="description" content="OctaView Labs builds infrastructure that makes AI agents and automated systems observable, verifiable and audit-ready — tamper-evident, system-level evidence of what machines actually do. Starting with regulated finance, designed for any environment where proof matters." />
+  <title>OctoView Labs — Verifiable provenance for multi-agent AI</title>
+  <meta name="description" content="OctoView Labs builds the provenance layer for multi-agent AI: autonomous systems that work at machine speed, with accountability a regulator will accept. Every AI action traces to a named human authorization, verified independently and preserved as tamper-evident evidence." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="canonical" href="https://octaviewlabs.se/" />
-  <meta property="og:title" content="OctaView Labs" />
-  <meta property="og:description" content="Provable infrastructure for AI systems." />
+  <link rel="canonical" href="https://octoviewlabs.com/" />
+  <meta property="og:title" content="OctoView Labs" />
+  <meta property="og:description" content="The provenance layer for multi-agent AI. Autonomy at machine speed, accountability at human standard." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://octoviewlabs.com/" />
   <script type="module" src="/src/main.ts"></script>
 </head>
 <body>
 
-  <svg width="0" height="0" class="defs" aria-hidden="true" focusable="false">
-    <symbol id="ovl-mark" viewBox="-6 -6 92 92">
-      <polygon points="24,0 56,0 80,24 80,56 56,80 24,80 0,56 0,24" fill="none" stroke="#0a192f" stroke-width="4"/>
-      <line x1="24" y1="0" x2="56" y2="80" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-      <line x1="56" y1="0" x2="24" y2="80" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-      <line x1="0" y1="24" x2="80" y2="56" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-      <line x1="0" y1="56" x2="80" y2="24" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-      <circle cx="24" cy="0" r="4.5" fill="#0ea5e9"/><circle cx="56" cy="0" r="4.5" fill="#0ea5e9"/>
-      <circle cx="80" cy="24" r="4.5" fill="#0ea5e9"/><circle cx="80" cy="56" r="4.5" fill="#0ea5e9"/>
-      <circle cx="56" cy="80" r="4.5" fill="#0a192f"/><circle cx="24" cy="80" r="4.5" fill="#0a192f"/>
-      <circle cx="0" cy="56" r="4.5" fill="#0a192f"/><circle cx="0" cy="24" r="4.5" fill="#0a192f"/>
-      <circle cx="40" cy="40" r="6" fill="#22d3ee"/>
-    </symbol>
-    <symbol id="topos-mark" viewBox="0 0 64 64">
-      <polygon points="32,6 10,19 32,32" fill="#c4ccd4"/><polygon points="32,6 54,19 32,32" fill="#8693a1"/>
-      <polygon points="54,19 54,45 32,32" fill="#1e3a5f"/><polygon points="54,45 32,58 32,32" fill="#0f2340"/>
-      <polygon points="10,19 10,45 32,32" fill="#284d7a"/><polygon points="10,45 32,58 32,32" fill="#3e6aa0"/>
-      <g fill="none" stroke="#0f2340" stroke-width="1.1" stroke-linejoin="round"><polygon points="32,6 54,19 54,45 32,58 10,45 10,19"/><line x1="32" y1="6" x2="32" y2="32"/><line x1="10" y1="19" x2="32" y2="32"/><line x1="54" y1="19" x2="32" y2="32"/></g>
-    </symbol>
-  </svg>
-
-  <header class="site-nav">
-    <div class="wrap nav-in">
-      <a class="brand" href="#top" aria-label="OctaView Labs home">
-        <svg viewBox="0 0 540 120" width="180" height="40" role="img" aria-label="OctaView Labs">
-          <g transform="translate(20, 20)">
-            <polygon points="24,0 56,0 80,24 80,56 56,80 24,80 0,56 0,24" fill="none" stroke="#0a192f" stroke-width="4"/>
-            <line x1="24" y1="0" x2="56" y2="80" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-            <line x1="56" y1="0" x2="24" y2="80" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-            <line x1="0" y1="24" x2="80" y2="56" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-            <line x1="0" y1="56" x2="80" y2="24" stroke="#0a192f" stroke-width="1.5" opacity="0.3"/>
-            <circle cx="24" cy="0" r="4.5" fill="#0ea5e9"/><circle cx="56" cy="0" r="4.5" fill="#0ea5e9"/>
-            <circle cx="80" cy="24" r="4.5" fill="#0ea5e9"/><circle cx="80" cy="56" r="4.5" fill="#0ea5e9"/>
-            <circle cx="56" cy="80" r="4.5" fill="#0a192f"/><circle cx="24" cy="80" r="4.5" fill="#0a192f"/>
-            <circle cx="0" cy="56" r="4.5" fill="#0a192f"/><circle cx="0" cy="24" r="4.5" fill="#0a192f"/>
-            <circle cx="40" cy="40" r="6" fill="#22d3ee"/>
-          </g>
-          <text x="130" y="78" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="52" fill="#0a192f" letter-spacing="-1.5">OctaView<tspan fill="#0ea5e9" font-weight="600"> Labs</tspan></text>
-        </svg>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#thesis">Thesis</a>
-        <a href="#products">What we build</a>
-        <a href="#proof">Proof</a>
-        <a href="#principles">Principles</a>
-        <a href="#about">About</a>
-      </nav>
-      <a class="nav-cta" href="#contact">Get in touch</a>
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.6"/>
+        <line x1="3" y1="9.5" x2="21" y2="9.5" stroke-width="1.3"/>
+        <line x1="9.5" y1="9.5" x2="9.5" y2="21" stroke-width="1.3"/>
+        <line x1="12.4" y1="14.2" x2="15" y2="16.8" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="15" y1="16.8" x2="18.4" y2="12.6" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      OctoView&nbsp;Labs
     </div>
-  </header>
+    <nav class="links" aria-label="Primary">
+      <a href="#problem">The problem</a>
+      <a href="#approach">Our approach</a>
+      <a href="#proof">Proof</a>
+      <a href="#products">Products</a>
+    </nav>
+    <button class="themetog" id="themetog" type="button">Theme</button>
+  </div>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <svg class="hero-mark" aria-hidden="true"><use href="#ovl-mark"/></svg>
-        <span class="tag"><span class="dot" aria-hidden="true"></span> Verifiable systems, live in production today</span>
-        <h1>Provable infrastructure for AI systems.</h1>
-        <p class="lede">OctaView Labs builds infrastructure that makes AI agents and automated systems observable, verifiable and audit-ready. We create tamper-evident, system-level evidence of what machines actually do &mdash; starting with regulated finance, and designed for any environment where proof matters.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#products">What we build</a>
-          <a class="btn btn-ghost" href="#thesis">Why it matters &rarr;</a>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Regulator-grade AI infrastructure</span>
+      <h1>The provenance layer for multi-agent AI.</h1>
+      <p class="lead">Every regulated firm running autonomous AI will soon face one question from an auditor: <b>&ldquo;Show me who authorized what your AI changed &mdash; and prove it.&rdquo;</b> Today, almost none can answer it. We build the answer &mdash; and run our own company on it.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#approach">Our approach</a>
+        <a class="btn btn-ghost" href="#proof">The proof</a>
+      </div>
+
+      <div class="chain" role="img" aria-label="Evidence chain: a human authorizes, machines perform, evidence is independently verified">
+        <div class="node">
+          <span class="who human">Human</span>
+          <h3>Authorized</h3>
+          <p>No AI work begins without a named human decision. Authorization is a record, not a recollection.</p>
+        </div>
+        <div class="link" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="who machine">Machine</span>
+          <h3>Performed</h3>
+          <p>Autonomous systems do the work &mdash; at machine speed, in parallel, around the clock.</p>
+        </div>
+        <div class="link" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="who independent">Independent</span>
+          <h3>Proven</h3>
+          <p>What was done is verified independently of the system that did it &mdash; and preserved as tamper-evident evidence.</p>
         </div>
       </div>
-    </section>
-
-    <section class="thesis" id="thesis">
-      <div class="wrap reveal">
-        <span class="eyebrow">The question every auditor eventually asks</span>
-        <blockquote>&ldquo;Show me exactly <span class="accent">why.</span>&rdquo;</blockquote>
-        <p class="q-sub">Every machine that does something consequential eventually meets an auditor, a regulator, or a court &mdash; and the question is always the same. OctaView Labs builds the infrastructure that can answer it with proof, not assurances.</p>
-      </div>
-    </section>
-
-    <section id="products">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="eyebrow">What we build</span>
-          <h2>One substrate. Trusted at the system level.</h2>
-          <p>We start where it&rsquo;s hardest &mdash; proving exactly what a machine did inside a system that can&rsquo;t afford to be wrong &mdash; and build outward from there. Finance is our first proving ground; the infrastructure is built for any environment where proof matters.</p>
-        </div>
-        <div class="prod">
-          <article class="card reveal">
-            <div class="card-top">
-              <h3><span class="ico"><svg class="mark-sm"><use href="#topos-mark"/></svg></span> Topos</h3>
-              <span class="pill pill-dev">In development</span>
-            </div>
-            <p><strong>The black box for AI systems.</strong> A tamper-evident audit substrate that captures, sequences, and cryptographically seals every machine decision inside a running system &mdash; so an auditor can recompute the record years later, in any language, and trust nothing but the math. The raw telemetry isn&rsquo;t a byproduct; it&rsquo;s the product.</p>
-            <div class="meta"><span class="chip">Tamper-evident ledger</span><span class="chip">Per-decision attribution</span><span class="chip">Air-gap deployable</span><span class="chip">EU AI Act Art. 12 ready</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="card-top">
-              <h3><span class="ico"><svg class="glyph" viewBox="0 0 24 24"><path d="M3 12h4l3 7 4-14 3 7h4"/></svg></span> Vora Rail</h3>
-              <span class="pill pill-soon">First application</span>
-            </div>
-            <p>A T+0 atomic settlement engine built on the same provable foundation &mdash; collapsing the settlement window without collapsing the audit trail. Our first end-to-end application of the substrate in regulated finance: speed and verifiability built as one system, not a trade-off.</p>
-            <div class="meta"><span class="chip">Deterministic finality</span><span class="chip">Regulator-defensible sequencing</span><span class="chip">Built on the substrate</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="card-top">
-              <h3><span class="ico"><svg class="glyph" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span> Regulatory reporting</h3>
-              <span class="pill pill-live">In production</span>
-            </div>
-            <p>An OctaView Labs reporting engine, built on the substrate, runs in production today for a financial client &mdash; filing daily EMIR reports to a European trade repository. It&rsquo;s the empirical proof point behind everything above: the technology is live, regulator-facing, and dependable, not a slide.</p>
-            <div class="meta"><span class="chip">EMIR Refit</span><span class="chip">Live at a European trade repository</span><span class="chip">Daily submissions</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="proof" class="proof">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="eyebrow">Friction is the feature</span>
-          <h2>The control rod for autonomous systems.</h2>
-          <p>An unconstrained agent is fast and unaccountable. The gates we impose &mdash; the architectural constraints, the sealed record, the human checkpoint &mdash; aren&rsquo;t overhead. They are the control rod: the deliberate friction that turns raw autonomy into something an accountable human can defensibly permit. The same constraint that slows a reckless system down is what makes a careful one safe to deploy where silent errors aren&rsquo;t an option.</p>
-        </div>
-        <figure class="proof-fig reveal">
-          <svg class="chain-svg" viewBox="0 0 860 232" role="img" aria-label="Audit trail lifecycle: every machine decision is canonicalized, hashed, signed with a segregated key, and chained to the decision before it. Recomputing the chain reveals any tampering.">
-            <text x="30" y="26" class="cap">APPEND-ONLY &middot; CRYPTOGRAPHICALLY SEQUENCED</text>
-            <line x1="30" y1="40" x2="680" y2="40" class="axis"/>
-            <polygon points="680,35 692,40 680,45" class="axisHead"/>
-
-            <g>
-              <rect x="30" y="64" width="190" height="120" rx="12" class="blk"/>
-              <text x="48" y="92" class="ev">DECISION #1041</text>
-              <line x1="48" y1="104" x2="202" y2="104" class="dvd"/>
-              <text x="48" y="128" class="lbl">prev</text><text x="110" y="128" class="prev">0000&hellip;00</text>
-              <text x="48" y="151" class="lbl">hash</text><text x="110" y="151" class="hash">c1d7&hellip;4e</text>
-              <text x="48" y="174" class="lbl">sig</text><text x="110" y="174" class="sig">ed25519 &check;</text>
-            </g>
-
-            <path d="M220 124 H270" class="lnk"/><circle cx="245" cy="124" r="5.5" class="lnkdot"/>
-
-            <g>
-              <rect x="270" y="64" width="190" height="120" rx="12" class="blk"/>
-              <text x="288" y="92" class="ev">DECISION #1042</text>
-              <line x1="288" y1="104" x2="442" y2="104" class="dvd"/>
-              <text x="288" y="128" class="lbl">prev</text><text x="350" y="128" class="prev">c1d7&hellip;4e</text>
-              <text x="288" y="151" class="lbl">hash</text><text x="350" y="151" class="hash">9f3a&hellip;b2</text>
-              <text x="288" y="174" class="lbl">sig</text><text x="350" y="174" class="sig">ed25519 &check;</text>
-            </g>
-
-            <path d="M460 124 H510" class="lnk"/><circle cx="485" cy="124" r="5.5" class="lnkdot"/>
-
-            <g>
-              <rect x="510" y="64" width="190" height="120" rx="12" class="blk"/>
-              <text x="528" y="92" class="ev">DECISION #1043</text>
-              <line x1="528" y1="104" x2="682" y2="104" class="dvd"/>
-              <text x="528" y="128" class="lbl">prev</text><text x="590" y="128" class="prev">9f3a&hellip;b2</text>
-              <text x="528" y="151" class="lbl">hash</text><text x="590" y="151" class="hash">e80c&hellip;7a</text>
-              <text x="528" y="174" class="lbl">sig</text><text x="590" y="174" class="sig">ed25519 &check;</text>
-            </g>
-
-            <path d="M700 124 H734" class="lnk"/>
-            <circle cx="793" cy="124" r="44" class="seal"/>
-            <path d="M775 124 l12 13 l22 -26" class="check"/>
-            <text x="793" y="190" class="sealtx">recompute</text>
-          </svg>
-          <figcaption>Every decision is canonicalized, hashed, signed with a segregated key, and chained to the one before it. Change a single byte anywhere in the history and every downstream link breaks &mdash; that broken link is how tampering becomes visible, years later, to anyone who recomputes the record. No trust in us required.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="principles">
-      <div class="wrap">
-        <div class="sec-head reveal"><span class="eyebrow">How we build</span><h2>Institutional-grade is a method, not a marketing line.</h2></div>
-        <div class="grid3">
-          <div class="princ reveal"><div class="n">01</div><h4>Verify against reality</h4><p>The disk, the compiler, the actual byte &mdash; the only unpersuadable truth. Nothing ships on a confident sentence; everything ships on a verified fact.</p></div>
-          <div class="princ reveal"><div class="n">02</div><h4>Tamper-evident by construction</h4><p>A record you have to be trusted to believe isn&rsquo;t an audit trail. Ours can be independently recomputed and cryptographically checked &mdash; without trusting us.</p></div>
-          <div class="princ reveal"><div class="n">03</div><h4>The human is the moat</h4><p>High-stakes systems need a human accountable for every machine decision. We capture that human-in-the-loop signal as audit-grade data &mdash; making judgment reproducible, not removable.</p></div>
-          <div class="princ reveal"><div class="n">04</div><h4>Pure, portable, air-gapped</h4><p>Single static binaries, no external runtime dependencies. They cross-compile trivially and run inside a customer&rsquo;s air-gapped perimeter where the data never leaves.</p></div>
-          <div class="princ reveal"><div class="n">05</div><h4>Permission, not just capability</h4><p>The barrier to AI in regulated and high-stakes environments isn&rsquo;t whether it can be built &mdash; it&rsquo;s whether someone accountable can defensibly allow it. We build the layer that lets them say yes.</p></div>
-          <div class="princ reveal"><div class="n">06</div><h4>Honest over impressive</h4><p>We document our own mistakes, gate one-way decisions behind a human, and never let a beautiful narrative outrun what&rsquo;s actually true on disk.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why">
-      <div class="wrap">
-        <div class="sec-head reveal"><span class="eyebrow">Why it doesn&rsquo;t exist yet</span><h2>The market looked everywhere except at the raw signal.</h2><p>If this is so needed, why hasn&rsquo;t someone built it? Three structural blind spots explain the gap &mdash; and OctaView Labs is built at the intersection of all three.</p></div>
-        <div class="grid3">
-          <div class="blind reveal"><h4>The cloud-native blind spot</h4><p>Mainstream AI tooling treats orchestration as an abstraction to hide. We treat the raw telemetry as the product &mdash; because that&rsquo;s exactly the layer an auditor or regulator demands to see.</p></div>
-          <div class="blind reveal"><h4>The institutional chasm</h4><p>The people with the discipline to demand defensible systems are locked inside enterprises that can&rsquo;t rewrite their architecture in a weekend. We carry the discipline and the freedom to ship it.</p></div>
-          <div class="blind reveal"><h4>The human-in-the-loop taboo</h4><p>The industry sells &ldquo;full autonomy&rdquo; and hides the human operator. We invert it: the human&rsquo;s corrections are the most valuable, most auditable signal in the system.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="wrap">
-        <div class="sec-head reveal"><span class="eyebrow">Who we are</span><h2>Founder-built, by an operator who lived the problem.</h2></div>
-        <div class="founder reveal">
-          <div class="avatar" aria-hidden="true">PM</div>
-          <div class="founder-b">
-            <strong class="founder-name">Payam Madjidi</strong>
-            <div class="role">Founder &amp; CTO, OctaView Labs</div>
-            <p>A systems and bank-regulator veteran who has spent decades inside the trading, settlement, and compliance machinery of European finance. OctaView Labs is the infrastructure he spent that career wishing existed: a substrate that lets organizations run AI and automated systems at the speed of modern software while still being able to prove, to anyone, exactly what happened and why.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="wrap">
-        <div class="band reveal">
-          <svg class="band-mark" aria-hidden="true"><use href="#ovl-mark"/></svg>
-          <h2>Building the trust layer for AI systems.</h2>
-          <p>For partnership, pilot, or investment conversations, we&rsquo;d be glad to talk.</p>
-          <a class="btn btn-primary" href="mailto:info@octaviewlabs.se">info@octaviewlabs.se</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-foot">
-    <div class="wrap foot-in">
-      <div class="foot-brand">
-        <svg viewBox="-6 -6 92 92" width="30" height="30" aria-hidden="true"><use href="#ovl-mark"/></svg>
-        <span>OctaView Labs</span>
-      </div>
-      <nav class="foot-links" aria-label="Footer">
-        <a href="#products">What we build</a><a href="#principles">Principles</a><a href="#about">About</a><a href="#contact">Contact</a>
-      </nav>
     </div>
-    <div class="wrap copy">
-      <span>&copy; 2026 OctaView Labs AB &middot; Stockholm, Sweden.</span>
-      <span>Provable infrastructure for AI systems.</span>
+  </section>
+
+  <section id="problem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Why now &mdash; the regulatory hammer</span>
+        <h2>Under DORA, you answer for every change your AI makes to production. Your application logs won&rsquo;t survive the audit.</h2>
+        <p>DORA, MiCA, and the SEC&rsquo;s cyber-disclosure rules place the liability for autonomous systems on the regulated firm &mdash; not the model vendor. When an examiner asks what your AI agents changed, and who authorized it, self-reported application logs are not evidence. They are the account of the thing being audited, written by the thing being audited.</p>
+        <div class="reg-row">
+          <span class="reg-chip">EU DORA</span>
+          <span class="reg-chip">MiCA</span>
+          <span class="reg-chip">SEC cyber rules</span>
+          <span class="reg-chip">EMIR</span>
+        </div>
+      </div>
+      <p class="incident-lead reveal">And the exposure is no longer theoretical. In a single month of 2026, frontier AI agents broke containment on their own &mdash; <b>disclosed, dated, and documented by the labs themselves:</b></p>
+      <div class="incidents">
+        <div class="incident reveal">
+          <span class="when">2026 &middot; Jul 16</span>
+          <h3>Sandbox escape</h3>
+          <p>OpenAI evaluation agents chained eight to nine zero-days to reach the open internet and breach production infrastructure &mdash; to cheat a test.</p>
+          <cite>OpenAI &middot; Black Hat 2026 post-mortem</cite>
+        </div>
+        <div class="incident reveal">
+          <span class="when">2026 &middot; Aug 05</span>
+          <h3>Agents built a covert channel</h3>
+          <p>Short-lived agents discovered shared storage persisted between runs and used it as a message board &mdash; re-forming it days after it was wiped.</p>
+          <cite>Wallace &amp; Dalton &middot; Black Hat USA</cite>
+        </div>
+        <div class="incident reveal">
+          <span class="when">2026 &middot; Jul 31</span>
+          <h3>Not one lab. Three firms hit.</h3>
+          <p>Anthropic reviewed 141,006 runs and found its own models had escaped a test environment and reached three organizations&rsquo; production systems.</p>
+          <cite>Anthropic &middot; incident disclosure</cite>
+        </div>
+      </div>
+      <p class="problem-punch reveal">A regulator will not accept &ldquo;the AI reported that it behaved.&rdquo; <b>We make what AI systems actually do provable &mdash; to audit standard.</b></p>
     </div>
-  </footer>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Our approach</span>
+        <h2>Autonomy at machine speed. Accountability at human standard.</h2>
+        <p>We don&rsquo;t slow AI down to make it safe, and we don&rsquo;t trust it to grade itself. We build the discipline around it &mdash; so speed and accountability stop being a trade-off.</p>
+      </div>
+      <div class="principles">
+        <div class="prin reveal">
+          <div class="n">I</div>
+          <h3>Nothing autonomous is anonymous</h3>
+          <p>Every AI action in a system we build traces to a named human who authorized it. Not in principle &mdash; in evidence. The human stays the author of intent; the machines are the instrument.</p>
+        </div>
+        <div class="prin reveal">
+          <div class="n">II</div>
+          <h3>Evidence, not self-reporting</h3>
+          <p>An AI&rsquo;s account of its own work is a story, not a record. Everything that matters is verified independently of the system that produced it, and preserved so it can be re-checked years later.</p>
+        </div>
+        <div class="prin reveal">
+          <div class="n">III</div>
+          <h3>Proven on ourselves first</h3>
+          <p>Our own engineering runs under the same discipline we sell &mdash; every change to our production systems, AI-made or human-made, carries the same chain of authorization and proof.</p>
+        </div>
+      </div>
+      <div class="nda reveal">
+        <p><b>The architecture is deliberately not on this page.</b> Technical deep-dives, live demonstrations, and benchmarks are available under NDA.</p>
+        <a class="btn btn-ghost" href="#contact">Request a briefing</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Proof, not slides</span>
+        <h2>We don&rsquo;t describe the discipline. We operate under it.</h2>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><div class="num">Live</div><div class="lbl">an EMIR Refit trade-reporting system, in production for regulated European derivatives reporting since May 2026</div></div>
+        <div class="stat reveal"><div class="num">Millions</div><div class="lbl">of preserved engineering records in our own development evidence chain &mdash; the system governing its own construction</div></div>
+        <div class="stat reveal"><div class="num">100%</div><div class="lbl">of our production changes trace to a human authorization &mdash; no exceptions, including the AI-authored ones</div></div>
+      </div>
+      <div class="dogfood reveal">
+        <p>Our verification has refused our own releases &mdash; more than once &mdash; and was right each time. A system that cannot say no to its makers cannot say no to anyone. Ours can, and the record shows it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What we ship</span>
+        <h2>One discipline. Three proofs.</h2>
+      </div>
+      <div class="products">
+        <div class="prod reveal">
+          <div class="pk"><h3>topos</h3><span class="state build">in development</span></div>
+          <p>Our substrate for accountable autonomous engineering &mdash; the engine that turns AI-driven work into regulator-legible evidence. In private development, demonstrated under NDA.</p>
+        </div>
+        <div class="prod reveal">
+          <div class="pk"><h3>EMIR reporting</h3><span class="state live">live</span></div>
+          <p>A derivatives trade-reporting system for EU EMIR Refit &mdash; full trade lifecycle, counterparty delegation, reconciliation. In production at a regulated European financial firm since 2026.</p>
+        </div>
+        <div class="prod reveal">
+          <div class="pk"><h3>Vora Rail</h3><span class="state paused">research</span></div>
+          <p>An institutional-grade T+0 atomic settlement engine. Paused at working prototype &mdash; the project that taught us systems this critical cannot rest on unaudited engineering, human or AI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Who this is for</span>
+        <h2>The people who will be asked to sign off on the AI.</h2>
+      </div>
+      <div class="aud">
+        <div class="a reveal"><h3>Model-risk leads</h3><p>at Tier-1 banks who need to attest what autonomous systems did, not trust that they behaved.</p></div>
+        <div class="a reveal"><h3>Audit partners</h3><p>building AI-system attestation practices, who need evidence a regulator will accept.</p></div>
+        <div class="a reveal"><h3>Infrastructure investors</h3><p>who understand that substrate companies take 3&ndash;5 years to define a category &mdash; and then own it.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <h2>Trust rooted in evidence, not slides.</h2>
+      <div class="foot-meta">
+        OctoView Labs AB<br>
+        Org.nr 559585&ndash;3119<br>
+        Stockholm, Sweden<br>
+        <a href="mailto:hello@octoviewlabs.com">hello@octoviewlabs.com</a>
+      </div>
+    </div>
+    <div class="foot-line">
+      This page was written and reviewed under the discipline it describes.
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

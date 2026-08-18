@@ -25,8 +25,26 @@ function initReveal(): void {
   els.forEach((el) => observer.observe(el));
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initReveal);
-} else {
+/** Theme toggle: cycles the data-theme attribute, seeded from the OS preference. */
+function initThemeToggle(): void {
+  const btn = document.getElementById('themetog');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const root = document.documentElement;
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = cur === 'dark' ? 'light' : cur === 'light' ? 'dark' : prefersDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+  });
+}
+
+function init(): void {
   initReveal();
+  initThemeToggle();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
 }
