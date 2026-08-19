@@ -11,10 +11,10 @@
   --line-soft: #d8dee3;
   --text: #131c25;
   --text-2: #47555f;
-  --text-3: #6e7b84;
-  --teal: #0f7d63;
+  --text-3: #5d6b74;
+  --teal: #0b6a53;
   --teal-bright: #17a67f;
-  --amber: #9a6714;
+  --amber: #8a5c10;
   --amber-bright: #c98a2b;
   --teal-wash: rgba(23, 166, 127, 0.09);
   --amber-wash: rgba(201, 138, 43, 0.1);
@@ -31,7 +31,7 @@
     --line-soft: #1e2c37;
     --text: #e4eaee;
     --text-2: #9daab4;
-    --text-3: #6c7d88;
+    --text-3: #7f919d;
     --teal: #2ec79c;
     --teal-bright: #3fe0b2;
     --amber: #d79b44;
@@ -48,7 +48,7 @@
   --line-soft: #1e2c37;
   --text: #e4eaee;
   --text-2: #9daab4;
-  --text-3: #6c7d88;
+  --text-3: #7f919d;
   --teal: #2ec79c;
   --teal-bright: #3fe0b2;
   --amber: #d79b44;
@@ -64,10 +64,10 @@
   --line-soft: #d8dee3;
   --text: #131c25;
   --text-2: #47555f;
-  --text-3: #6e7b84;
-  --teal: #0f7d63;
+  --text-3: #5d6b74;
+  --teal: #0b6a53;
   --teal-bright: #17a67f;
-  --amber: #9a6714;
+  --amber: #8a5c10;
   --amber-bright: #c98a2b;
   --teal-wash: rgba(23, 166, 127, 0.09);
   --amber-wash: rgba(201, 138, 43, 0.1);
@@ -165,8 +165,8 @@ section.hero { padding: 96px 0 80px; border-top: none; }
   border: 1px solid transparent;
   transition: transform 0.12s ease, background 0.15s ease;
 }
-.btn-primary { background: var(--teal); color: #06120e; }
-.btn-primary:hover { transform: translateY(-1px); background: var(--teal-bright); }
+.btn-primary { background: var(--teal-bright); color: #06120e; }
+.btn-primary:hover { transform: translateY(-1px); background: #1fc094; }
 .btn-ghost { border-color: var(--line); color: var(--text); background: transparent; }
 .btn-ghost:hover { border-color: var(--text-3); }
 
